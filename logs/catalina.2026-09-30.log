@@ -835,3 +835,242 @@
 30-Sep-2026 16:32:30.781 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
 30-Sep-2026 16:32:30.783 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 30-Sep-2026 16:32:30.787 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 16:32:38.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+30-Sep-2026 16:32:38.900 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+30-Sep-2026 16:32:38.900 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+30-Sep-2026 16:32:38.900 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-26.0.1
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1+8-34
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Cookies-web\cookie-kitchen
+30-Sep-2026 16:32:38.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 16:32:38.914 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\..\..\..\..\..\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Cookies-web\cookie-kitchen
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Cookies-web\cookie-kitchen\temp
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Cookies-web\cookie-kitchen\conf\logging.properties
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Sep-2026 16:32:38.915 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=57628
+30-Sep-2026 16:32:38.916 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+30-Sep-2026 16:32:38.916 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+30-Sep-2026 16:32:38.916 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+30-Sep-2026 16:32:38.923 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+30-Sep-2026 16:32:38.936 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+30-Sep-2026 16:32:39.393 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 16:32:39.420 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [805] milliseconds
+30-Sep-2026 16:32:39.472 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Sep-2026 16:32:39.473 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+30-Sep-2026 16:32:39.491 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml]
+30-Sep-2026 16:32:41.711 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Sep-2026 16:32:41.800 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml] has finished in [2,305] ms
+30-Sep-2026 16:32:41.805 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 16:32:41.835 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2414] milliseconds
+30-Sep-2026 16:37:28.530 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 16:37:28.535 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Sep-2026 16:37:28.541 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [cookie-kitchen] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+30-Sep-2026 16:37:28.541 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [cookie-kitchen] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:391)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+ java.base/java.lang.Thread.run(Thread.java:1516)
+30-Sep-2026 16:37:28.544 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 16:37:28.547 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:18:46.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+30-Sep-2026 19:18:46.554 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-26.0.1
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1+8-34
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:18:46.555 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:18:46.566 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Sep-2026 19:18:46.566 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Sep-2026 19:18:46.566 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Sep-2026 19:18:46.566 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\..\..\..\..\..\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Cookies-web\cookie-kitchen\temp
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Cookies-web\cookie-kitchen\conf\logging.properties
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59450
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+30-Sep-2026 19:18:46.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+30-Sep-2026 19:18:46.577 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+30-Sep-2026 19:18:46.613 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+30-Sep-2026 19:18:47.093 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:18:47.111 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [986] milliseconds
+30-Sep-2026 19:18:47.229 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Sep-2026 19:18:47.229 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+30-Sep-2026 19:18:47.246 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml]
+30-Sep-2026 19:18:48.792 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Sep-2026 19:18:48.905 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml] has finished in [1,657] ms
+30-Sep-2026 19:18:48.910 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:18:48.951 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1838] milliseconds
+30-Sep-2026 19:19:18.840 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:19:18.845 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Sep-2026 19:19:18.859 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:19:18.870 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:19:59.037 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Sep-2026 19:19:59.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-26.0.1
+30-Sep-2026 19:19:59.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1+8-34
+30-Sep-2026 19:19:59.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Sep-2026 19:19:59.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:19:59.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:19:59.057 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\..\..\..\..\..\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:19:59.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Cookies-web\cookie-kitchen\temp
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Cookies-web\cookie-kitchen\conf\logging.properties
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=56862
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+30-Sep-2026 19:19:59.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+30-Sep-2026 19:19:59.066 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+30-Sep-2026 19:19:59.079 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+30-Sep-2026 19:19:59.702 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:19:59.739 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1106] milliseconds
+30-Sep-2026 19:19:59.810 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Sep-2026 19:19:59.810 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+30-Sep-2026 19:19:59.827 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml]
+30-Sep-2026 19:20:01.354 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Sep-2026 19:20:01.452 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml] has finished in [1,617] ms
+30-Sep-2026 19:20:01.456 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:01.489 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1749] milliseconds
+30-Sep-2026 19:20:29.275 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:29.280 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Sep-2026 19:20:29.291 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:29.305 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:37.183 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+30-Sep-2026 19:20:37.188 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+30-Sep-2026 19:20:37.188 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-26.0.1
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1+8-34
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:20:37.189 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:20:37.208 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Sep-2026 19:20:37.208 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Sep-2026 19:20:37.208 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Sep-2026 19:20:37.208 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\..\..\..\..\..\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Cookies-web\cookie-kitchen\temp
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Cookies-web\cookie-kitchen\conf\logging.properties
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=50979
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+30-Sep-2026 19:20:37.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+30-Sep-2026 19:20:37.214 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+30-Sep-2026 19:20:37.230 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+30-Sep-2026 19:20:37.733 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:37.756 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [924] milliseconds
+30-Sep-2026 19:20:37.813 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Sep-2026 19:20:37.814 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+30-Sep-2026 19:20:37.834 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml]
+30-Sep-2026 19:20:39.072 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Sep-2026 19:20:39.154 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml] has finished in [1,317] ms
+30-Sep-2026 19:20:39.159 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:20:39.187 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1428] milliseconds
+30-Sep-2026 19:22:17.948 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:22:17.953 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Sep-2026 19:22:17.962 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [cookie-kitchen] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+30-Sep-2026 19:22:17.962 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [cookie-kitchen] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:391)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+ java.base/java.lang.Thread.run(Thread.java:1516)
+30-Sep-2026 19:22:17.966 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:22:17.977 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:22:35.171 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+30-Sep-2026 19:22:35.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+30-Sep-2026 19:22:35.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+30-Sep-2026 19:22:35.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-26.0.1
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1+8-34
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:22:35.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:22:35.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Sep-2026 19:22:35.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+30-Sep-2026 19:22:35.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+30-Sep-2026 19:22:35.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Sep-2026 19:22:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Sep-2026 19:22:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\..\..\..\..\..\tomcat\apache-tomcat-10.1.60
+30-Sep-2026 19:22:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Cookies-web\cookie-kitchen
+30-Sep-2026 19:22:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Cookies-web\cookie-kitchen\temp
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Cookies-web\cookie-kitchen\conf\logging.properties
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=57274
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+30-Sep-2026 19:22:35.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+30-Sep-2026 19:22:35.207 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+30-Sep-2026 19:22:35.220 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+30-Sep-2026 19:22:35.743 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:22:35.769 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [873] milliseconds
+30-Sep-2026 19:22:35.826 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Sep-2026 19:22:35.826 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+30-Sep-2026 19:22:35.841 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml]
+30-Sep-2026 19:22:37.247 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Sep-2026 19:22:37.330 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Cookies-web\cookie-kitchen\conf\Catalina\localhost\cookie-kitchen.xml] has finished in [1,486] ms
+30-Sep-2026 19:22:37.333 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:22:37.357 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1586] milliseconds
+30-Sep-2026 19:31:40.653 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:31:40.665 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+30-Sep-2026 19:31:40.681 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [cookie-kitchen] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+30-Sep-2026 19:31:40.682 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [cookie-kitchen] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:391)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+ java.base/java.lang.Thread.run(Thread.java:1516)
+30-Sep-2026 19:31:40.695 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:31:40.711 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+30-Sep-2026 19:31:40.758 INFO [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1500)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1067)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:116)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:83)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+		at java.base/java.lang.Thread.run(Thread.java:1516)
