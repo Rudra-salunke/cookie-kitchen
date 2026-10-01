@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,9 @@
     <title>Login</title>
 </head>
 <body>
+<c:if test="${not empty error}">
+    <p style="color:red;">${error}</p>
+</c:if>
 <h1>Login</h1>
 <form method="post" action="login">
     <table>

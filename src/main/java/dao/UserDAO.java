@@ -58,4 +58,26 @@ public class UserDAO {
             return ps.executeUpdate();
         }
     }
+    public User getUserByEmail(String email) throws SQLException, ClassNotFoundException {
+        try(Connection con= DBConnection.getConnection();
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM users where email= ?");
+        ) {
+            ps.setString(1,email);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()){
+                return new User(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("password_hash"),
+                        rs.getString("phone"),
+                        rs.getString("role"),
+                        rs.getString("created_at")
+                );
+            }else{
+                return null;
+            }
+        }
+    }
 }
