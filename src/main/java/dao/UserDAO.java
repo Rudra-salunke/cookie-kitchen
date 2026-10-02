@@ -18,17 +18,8 @@ public class UserDAO {
             PreparedStatement ps=con.prepareStatement("SELECT * FROM users");
             ResultSet rs = ps.executeQuery();
         ) {
-            while(rs.next()){
-                User u=new User(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getString("password_hash"),
-                        rs.getString("phone"),
-                        rs.getString("role"),
-                        rs.getString("created_at")
-                );
-                a.add(u);
+            while (rs.next()) {
+                a.add(mapRowToUsers(rs));
             }
             return a;
         }
@@ -60,24 +51,22 @@ public class UserDAO {
     }
     public User getUserByEmail(String email) throws SQLException, ClassNotFoundException {
         try(Connection con= DBConnection.getConnection();
-            PreparedStatement ps=con.prepareStatement("SELECT * FROM users where email= ?");
-        ) {
-            ps.setString(1,email);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()){
-                return new User(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getString("password_hash"),
-                        rs.getString("phone"),
-                        rs.getString("role"),
-                        rs.getString("created_at")
-                );
-            }else{
-                return null;
-            }
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM users where email= ?");){
+                ps.setString(1,email);
+                try (ResultSet rs = ps.executeQuery()) {
+                    return rs.next() ? mapRowToUsers(rs) : null;
+                }
         }
+    }
+    private User mapRowToUsers(ResultSet rs) throws SQLException {
+        return new User(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("email"),
+                rs.getString("password_hash"),
+                rs.getString("phone"),
+                rs.getString("role"),
+                rs.getString("created_at")
+        );
     }
 }

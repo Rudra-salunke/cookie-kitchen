@@ -12,6 +12,8 @@
         <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a>
     </c:otherwise>
 </c:choose>
-<p><a href="test">View Products</a></p>
+<p>
+    <a href="menu">Cookies menu</a>
+</p>
 </body>
 </html>
