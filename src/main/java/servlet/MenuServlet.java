@@ -21,11 +21,6 @@ public class MenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws IOException, ServletException{
-        jakarta.servlet.http.HttpSession session = req.getSession(false);
-        if (session == null || session.getAttribute("user") == null) {
-            res.sendRedirect("login.jsp");
-            return;
-        }
         res.setContentType("text/html");
         ProductDAO menu= new ProductDAO();
         CategoryDAO cat= new CategoryDAO();

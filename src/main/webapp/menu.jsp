@@ -13,6 +13,17 @@
     <button type="submit">Search</button>
 </form>
 
+<nav>
+    <a href="${pageContext.request.contextPath}/menu"
+       class="${empty selectedCategory && empty query ? 'active' : ''}">All</a>
+    <c:forEach var="cat" items="${categories}">
+        <a href="${pageContext.request.contextPath}/menu?category=${cat.id}"
+           class="${selectedCategory == cat.id ? 'active' : ''}">
+            <c:out value="${cat.name}"/>
+        </a>
+    </c:forEach>
+</nav>
+
 <c:choose>
     <c:when test="${empty products}">
         <p>No products found.</p>
