@@ -70,7 +70,7 @@ public class ProductDAO {
                 rs.getInt("category_id"),
                 rs.getString("name"),
                 rs.getString("description"),
-                rs.getDouble("price"),
+                rs.getBigDecimal("price"),
                 rs.getString("image_url"),
                 rs.getInt("stock"),
                 rs.getBoolean("is_available")
