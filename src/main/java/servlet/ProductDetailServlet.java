@@ -16,7 +16,6 @@ public class ProductDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws IOException, ServletException{
-        jakarta.servlet.http.HttpSession session = req.getSession(false);
         try {
             String idParam = req.getParameter("id");
             int id = 0;
