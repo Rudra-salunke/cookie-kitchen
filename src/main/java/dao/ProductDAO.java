@@ -57,7 +57,7 @@ public class ProductDAO {
     }
     public Product getProductById(int id) throws SQLException, ClassNotFoundException {
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement ps = con.prepareStatement("SELECT * FROM products WHERE id = ? and is_available=1 ")) {
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM products WHERE id = ?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next() ? mapRowToProduct(rs) : null;
