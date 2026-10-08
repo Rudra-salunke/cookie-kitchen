@@ -18,6 +18,20 @@ public class CartDAO {
     public static final int UNAVAILABLE=2;
     public static final int LIMIT_EXCEEDED=3;
     public static final int MAX_PER_ITEM=20;
+    public List<CartItem> getCartItems(Connection con,int userId)
+            throws SQLException, ClassNotFoundException {
+        List <CartItem> items=new ArrayList<>();
+        try(PreparedStatement ps=con.prepareStatement("SELECT ci.id,ci.product_id,ci.quantity,p.name,p.image_url,p.price,p.stock,p.is_available FROM cart_items as ci join products as p on ci.product_id=p.id where ci.user_id=? ORDER BY ci.id")
+        ) {
+            ps.setInt(1, userId);
+            try(ResultSet rs = ps.executeQuery()){
+                while (rs.next()) {
+                    items.add(mapRowToCartItem(rs));
+                }
+                return items;
+            }
+        }
+    }
     public List<CartItem> getCartItems(int userId)
             throws SQLException, ClassNotFoundException {
         List <CartItem> items=new ArrayList<>();
@@ -66,6 +80,12 @@ public class CartDAO {
             ps.setInt(1,userId);
             int rows=ps.executeUpdate();
             return rows;
+        }
+    }
+    public int clearCart(Connection con, int userId) throws SQLException {
+        try (PreparedStatement ps = con.prepareStatement("DELETE FROM cart_items WHERE user_id = ?")) {
+            ps.setInt(1, userId);
+            return ps.executeUpdate();
         }
     }
     public int getItemCount(int userId)
