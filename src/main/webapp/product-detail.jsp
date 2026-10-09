@@ -23,7 +23,12 @@
 
         <c:choose>
             <c:when test="${product.available}">
-                <button disabled>Add to cart (coming in Phase 4)</button>
+                <form action="${pageContext.request.contextPath}/cart" method="post">
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="productId" value="${product.id}">
+                    <input type="number" name="quantity" value="1" min="1" max="20" required>
+                    <input type="submit" name="submit" value="add to cart">
+                </form>
             </c:when>
             <c:otherwise>
                 <p>Currently unavailable</p>

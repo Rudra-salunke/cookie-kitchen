@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-@WebFilter({"/cart", "/checkout", "/orders", "/admin/*"})
+@WebFilter({"/my-orders","/order-success","/cart", "/checkout", "/orders", "/admin/*"})
 public class AuthFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {

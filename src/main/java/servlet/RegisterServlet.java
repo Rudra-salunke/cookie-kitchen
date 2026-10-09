@@ -18,13 +18,13 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html");
-        // 1. get parameters
+
         String name = req.getParameter("name");
         String phone = req.getParameter("phone");
         String email = req.getParameter("email");
         String Password = req.getParameter("password");
         String chk1 = req.getParameter("chk1");
-        // 2. check for duplicate email (needs a DAO method)
+
         try{
             UserDAO users= new UserDAO();
             List<String> existingEmails = users.getALLEmail();
@@ -40,12 +40,12 @@ public class RegisterServlet extends HttpServlet {
                 req.getRequestDispatcher("register.jsp").forward(req, res);
                 return;
             }
-            // 3. hash password
+
             String hashedPassword = BCrypt.hashpw(Password, BCrypt.gensalt());
-            // 4. insert user (needs a DAO method)
+
             User u = new User(0, name,email,hashedPassword,phone,null,null);
             int rowsInserted =users.registerUser(u);
-            // 5. forward/redirect
+
             if (rowsInserted > 0) {
                 res.sendRedirect("login.jsp");
             } else {
