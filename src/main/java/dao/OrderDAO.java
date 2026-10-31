@@ -10,13 +10,10 @@ import java.util.*;
 
 public class OrderDAO {
 
-    private final CartDAO cartDAO = new CartDAO();   // (used inside the transaction via its Connection overloads)
-
-    // ===================== PUBLIC: the one big transaction =====================
+    private final CartDAO cartDAO = new CartDAO();
     public int placeOrder(int userId, Address address, Order.PaymentMethod method)
             throws SQLException, ClassNotFoundException, OrderException {
 
-        // (open ONE connection with try-with-resources; every step below uses this same con)
         try (Connection con= DBConnection.getConnection()){
             con.setAutoCommit(false);
             try {
@@ -53,7 +50,6 @@ public class OrderDAO {
         }
     }
 
-    // ===================== PRIVATE helpers: all take the Connection =====================
 
     private int insertAddress(Connection con, Address a) throws SQLException {
         String sql = "INSERT INTO addresses (user_id, line1, line2, city, pincode, is_default) VALUES (?,?,?,?,?,0)";
@@ -137,8 +133,6 @@ public class OrderDAO {
         );
     }
 
-    // ===================== PUBLIC: read methods, written after placeOrder works =====================
-
     public Order getOrderById(int orderId, int userId) throws SQLException, ClassNotFoundException {
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT id, user_id, address_id, total, status, payment_method, created_at  " +
@@ -155,7 +149,7 @@ public class OrderDAO {
     }
 
     public List<Order> getOrdersByUser(int userId) throws SQLException, ClassNotFoundException {
-        // (WHERE user_id = ? ORDER BY created_at DESC, id DESC)
+
         List<Order> o=new ArrayList<>();
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC, id DESC")) {
@@ -170,7 +164,6 @@ public class OrderDAO {
     }
 
     public List<OrderItem> getItemsByOrder(int orderId) throws SQLException, ClassNotFoundException {
-        // (JOIN products to get name and image_url; fills OrderItem.name and imageUrl)
         List<OrderItem> o=new ArrayList<>();
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT oi.id, oi.order_id, oi.product_id, oi.quantity, oi.price_at_purchase, p.name, p.image_url " +
@@ -186,7 +179,6 @@ public class OrderDAO {
     }
 
     public Address getAddressById(int addressId) throws SQLException, ClassNotFoundException {
-        // (for the success page; the order's address_id came from a row you just validated)
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT id, user_id, line1, line2, city, pincode, is_default FROM addresses WHERE id = ?")) {
             ps.setInt(1,addressId);

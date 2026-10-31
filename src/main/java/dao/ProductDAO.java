@@ -7,7 +7,7 @@ public class ProductDAO {
     public List<Product> getALLProducts() throws SQLException, ClassNotFoundException {
         List <Product> a=new ArrayList<>();
         try(Connection con= DBConnection.getConnection();
-            PreparedStatement ps=con.prepareStatement("SELECT * FROM Products");
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM products");
             ResultSet rs = ps.executeQuery();
         ) {
             while (rs.next()) {
@@ -19,7 +19,7 @@ public class ProductDAO {
     public List<Product> getALLAvailableProducts() throws SQLException, ClassNotFoundException {
         List <Product> a=new ArrayList<>();
         try(Connection con= DBConnection.getConnection();
-            PreparedStatement ps=con.prepareStatement("SELECT * FROM Products where is_available=1");
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM products where is_available=1");
             ResultSet rs = ps.executeQuery();
         ) {
             while (rs.next()) {
