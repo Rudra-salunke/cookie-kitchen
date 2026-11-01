@@ -76,4 +76,16 @@ public class ProductDAO {
                 rs.getBoolean("is_available")
         );
     }
+    public List<Product> productLowStock()throws SQLException, ClassNotFoundException {
+        List<Product> lowOnStock=new ArrayList<>();
+        try(Connection con= DBConnection.getConnection();
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM products where stock<=5 and is_available=1 order by name");
+            ResultSet rs = ps.executeQuery();
+        ) {
+            while (rs.next()) {
+                lowOnStock.add(mapRowToProduct(rs));
+            }
+            return lowOnStock;
+        }
+    }
 }

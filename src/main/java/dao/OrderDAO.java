@@ -8,6 +8,8 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
 
+import static model.Order.Status.PLACED;
+
 public class OrderDAO {
 
     private final CartDAO cartDAO = new CartDAO();
@@ -197,5 +199,41 @@ public class OrderDAO {
                 return null;
             }
         }
+    }
+    public int totalOrders() throws SQLException, ClassNotFoundException{
+        int count=0;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) as totalOrders FROM orders")){
+            ResultSet rs =ps.executeQuery();
+            if(rs.next()){
+                count=rs.getInt("totalOrders");
+            }
+        }
+        return count;
+    }
+    public int totalOrdersStatus(Order.Status e) throws SQLException, ClassNotFoundException{
+        int count=0;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) as totalOrdersStatus FROM orders where status=?")){
+            ps.setString(1, String.valueOf(e));
+            ResultSet rs =ps.executeQuery();
+            if (rs.next()){
+                count=rs.getInt("totalOrdersStatus");
+            }
+        }
+        return count;
+    }
+    public BigDecimal revenue() throws SQLException, ClassNotFoundException{
+        BigDecimal revenue =BigDecimal.ZERO;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COALESCE(SUM(total), 0) AS revenue" +
+                    " FROM orders" +
+                    " WHERE status <> 'CANCELLED'")){
+            ResultSet rs =ps.executeQuery();
+            if (rs.next()){
+                revenue =rs.getBigDecimal("revenue");
+            }
+        }
+        return revenue;
     }
 }

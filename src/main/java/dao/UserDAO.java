@@ -69,4 +69,15 @@ public class UserDAO {
                 rs.getString("created_at")
         );
     }
+    public int totalUsers() throws SQLException, ClassNotFoundException{
+        int count=0;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) as totalUsers FROM users where role='CUSTOMER'")){
+            ResultSet rs =ps.executeQuery();
+            if(rs.next()){
+                count=rs.getInt("totalUsers");
+            }
+        }
+        return count;
+    }
 }
