@@ -236,4 +236,38 @@ public class OrderDAO {
         }
         return revenue;
     }
+    public List<Order> getAllOrders() throws SQLException, ClassNotFoundException {
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT o.id, o.user_id, o.address_id, o.total, o.status, o.payment_method, o.created_at ,u.name AS customer_name " +
+                    "FROM orders as o join users as u ON o.user_id = u.id ORDER BY o.created_at DESC ")) {
+            List<Order> o=new ArrayList<>();
+
+            try (ResultSet rs =ps.executeQuery()){
+                while (rs.next()){
+                    Order current_Order= mapRowToOrder(rs);
+                    current_Order.setCustomerName(rs.getString("customer_name"));
+                    o.add(current_Order);
+                }
+                return o;
+            }
+        }
+    }
+    public boolean updateStatus(int orderId, Order.Status expected, Order.Status newStatus)
+            throws SQLException, ClassNotFoundException {
+        if (newStatus == Order.Status.CANCELLED) {
+            return false;
+        }
+        if (expected == null || newStatus == null || !expected.canMoveTo(newStatus)) {
+            return false;
+        }
+        String sql = "UPDATE orders SET status = ? WHERE id = ? AND status = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1,newStatus.name());
+            ps.setInt(2,orderId);
+            ps.setString(3, expected.name());
+            int rows = ps.executeUpdate();
+            return rows==1;
+        }
+    }
 }

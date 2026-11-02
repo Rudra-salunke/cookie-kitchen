@@ -15,7 +15,9 @@
     <a href="${pageContext.request.contextPath}/index.jsp">Back to site</a> |
     <a href="${pageContext.request.contextPath}/logout">Logout</a>
 </p>
-
+<p>
+    <a href="${pageContext.request.contextPath}/admin/orders">Manage Orders</a>
+</p>
 <h2>Overview</h2>
 <ul>
     <li>Total orders: <c:out value="${totalOrders}"/></li>
