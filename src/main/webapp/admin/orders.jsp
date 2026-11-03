@@ -75,11 +75,19 @@
                     <input type="hidden" name="orderId" value="${order.id}">
                     <input type="hidden" name="expected" value="${order.status.name()}">
                     <c:forEach var="next" items="${nextList}">
-                        <c:if test="${next.name() ne 'CANCELLED'}">
-                            <button type="submit" name="status" value="${next.name()}">
-                                Move to <c:out value="${next}"/>
-                            </button>
-                        </c:if>
+                        <c:choose>
+                            <c:when test="${next.name() eq 'CANCELLED'}">
+                                <button type="submit" name="status" value="CANCELLED"
+                                        onclick="return confirm('Cancel order #${order.id}? Stock will be returned.');">
+                                    Cancel order
+                                </button>
+                            </c:when>
+                            <c:otherwise>
+                                <button type="submit" name="status" value="${next.name()}">
+                                    Move to <c:out value="${next}"/>
+                                </button>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </form>
             </c:otherwise>

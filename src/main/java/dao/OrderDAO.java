@@ -4,6 +4,7 @@ import exception.OrderException;
 import model.*;
 import util.DBConnection;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
@@ -165,19 +166,27 @@ public class OrderDAO {
         }
     }
 
-    public List<OrderItem> getItemsByOrder(int orderId) throws SQLException, ClassNotFoundException {
-        List<OrderItem> o=new ArrayList<>();
-        try(Connection con = DBConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT oi.id, oi.order_id, oi.product_id, oi.quantity, oi.price_at_purchase, p.name, p.image_url " +
-                    "FROM order_items oi JOIN products p ON oi.product_id = p.id WHERE oi.order_id = ? ORDER BY oi.id")) {
-            ps.setInt(1,orderId);
-            try (ResultSet rs =ps.executeQuery()){
-                while(rs.next()){
-                    o.add(mapRowToOrderItem(rs));
+    public List<OrderItem> getItemsByOrder(int orderId)
+            throws SQLException, ClassNotFoundException {
+        try (Connection con = DBConnection.getConnection()) {
+            return getItemsByOrder(con, orderId);
+        }
+    }
+    public List<OrderItem> getItemsByOrder(Connection con, int orderId)
+            throws SQLException {
+        List<OrderItem> items = new ArrayList<>();
+        String sql = "SELECT oi.id, oi.order_id, oi.product_id, oi.quantity, oi.price_at_purchase, p.name, p.image_url "
+                + "FROM order_items oi JOIN products p ON oi.product_id = p.id "
+                + "WHERE oi.order_id = ? ORDER BY oi.id";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, orderId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    items.add(mapRowToOrderItem(rs));
                 }
-                return o;
             }
         }
+        return items;
     }
 
     public Address getAddressById(int addressId) throws SQLException, ClassNotFoundException {
@@ -268,6 +277,37 @@ public class OrderDAO {
             ps.setString(3, expected.name());
             int rows = ps.executeUpdate();
             return rows==1;
+        }
+    }
+    public Boolean cancelOrder(int orderId)throws SQLException, ClassNotFoundException{
+        String Sql="UPDATE orders SET status = 'CANCELLED' WHERE id = ? AND status = 'PLACED'";
+        try (Connection con= DBConnection.getConnection()){
+            con.setAutoCommit(false);
+            try(PreparedStatement ps=con.prepareStatement(Sql)){
+                ps.setInt(1,orderId);
+                int rows=ps.executeUpdate();
+                if (rows != 1) {
+                    con.rollback();
+                    return false;
+                }
+                List<OrderItem> o=getItemsByOrder(orderId);
+                o.sort(Comparator.comparingInt(OrderItem::getProductId));
+                String sql="UPDATE products SET stock = stock + ? WHERE id = ?";
+                try (PreparedStatement ps1 = con.prepareStatement(sql)) {
+                    for (OrderItem item : o) {
+                        ps1.setInt(1, item.getQuantity());
+                        ps1.setInt(2, item.getProductId());
+                        ps1.executeUpdate();
+                    }
+                }
+                con.commit();
+                return true;
+            } catch (SQLException | RuntimeException e) {
+                con.rollback();
+                throw e;
+            } finally {
+                con.setAutoCommit(true);
+            }
         }
     }
 }

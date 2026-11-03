@@ -71,8 +71,15 @@ public class AdminOrdersServlet extends HttpServlet {
         }
         try {
             OrderDAO orderDAO = new OrderDAO();
-            boolean updated = orderDAO.updateStatus(orderId, expected, newStatus);
-            if (updated) {
+            boolean done;
+            if (newStatus == Order.Status.CANCELLED) {
+                done = expected.canMoveTo(newStatus) && orderDAO.cancelOrder(orderId);
+            } else {
+                done = orderDAO.updateStatus(orderId, expected, newStatus);
+            }
+            if (done && newStatus == Order.Status.CANCELLED) {
+                session.setAttribute("flash", "Order #" + orderId + " cancelled and stock restored.");
+            } else if (done) {
                 session.setAttribute("flash", "Order #" + orderId + " moved to " + newStatus + ".");
             } else {
                 session.setAttribute("flash", "Order #" + orderId
