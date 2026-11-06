@@ -17,6 +17,7 @@
 </p>
 <p>
     <a href="${pageContext.request.contextPath}/admin/orders">Manage Orders</a>
+    <a href="${pageContext.request.contextPath}/admin/products">Manage Product</a>
 </p>
 <h2>Overview</h2>
 <ul>
