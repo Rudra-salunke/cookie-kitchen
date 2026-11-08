@@ -4,19 +4,19 @@ import exception.OrderException;
 import model.*;
 import util.DBConnection;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
 
+import static model.Order.Status.PLACED;
+
 public class OrderDAO {
 
-    private final CartDAO cartDAO = new CartDAO();   // (used inside the transaction via its Connection overloads)
-
-    // ===================== PUBLIC: the one big transaction =====================
+    private final CartDAO cartDAO = new CartDAO();
     public int placeOrder(int userId, Address address, Order.PaymentMethod method)
             throws SQLException, ClassNotFoundException, OrderException {
 
-        // (open ONE connection with try-with-resources; every step below uses this same con)
         try (Connection con= DBConnection.getConnection()){
             con.setAutoCommit(false);
             try {
@@ -53,7 +53,6 @@ public class OrderDAO {
         }
     }
 
-    // ===================== PRIVATE helpers: all take the Connection =====================
 
     private int insertAddress(Connection con, Address a) throws SQLException {
         String sql = "INSERT INTO addresses (user_id, line1, line2, city, pincode, is_default) VALUES (?,?,?,?,?,0)";
@@ -137,8 +136,6 @@ public class OrderDAO {
         );
     }
 
-    // ===================== PUBLIC: read methods, written after placeOrder works =====================
-
     public Order getOrderById(int orderId, int userId) throws SQLException, ClassNotFoundException {
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT id, user_id, address_id, total, status, payment_method, created_at  " +
@@ -155,7 +152,7 @@ public class OrderDAO {
     }
 
     public List<Order> getOrdersByUser(int userId) throws SQLException, ClassNotFoundException {
-        // (WHERE user_id = ? ORDER BY created_at DESC, id DESC)
+
         List<Order> o=new ArrayList<>();
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC, id DESC")) {
@@ -169,24 +166,30 @@ public class OrderDAO {
         }
     }
 
-    public List<OrderItem> getItemsByOrder(int orderId) throws SQLException, ClassNotFoundException {
-        // (JOIN products to get name and image_url; fills OrderItem.name and imageUrl)
-        List<OrderItem> o=new ArrayList<>();
-        try(Connection con = DBConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT oi.id, oi.order_id, oi.product_id, oi.quantity, oi.price_at_purchase, p.name, p.image_url " +
-                    "FROM order_items oi JOIN products p ON oi.product_id = p.id WHERE oi.order_id = ? ORDER BY oi.id")) {
-            ps.setInt(1,orderId);
-            try (ResultSet rs =ps.executeQuery()){
-                while(rs.next()){
-                    o.add(mapRowToOrderItem(rs));
+    public List<OrderItem> getItemsByOrder(int orderId)
+            throws SQLException, ClassNotFoundException {
+        try (Connection con = DBConnection.getConnection()) {
+            return getItemsByOrder(con, orderId);
+        }
+    }
+    public List<OrderItem> getItemsByOrder(Connection con, int orderId)
+            throws SQLException {
+        List<OrderItem> items = new ArrayList<>();
+        String sql = "SELECT oi.id, oi.order_id, oi.product_id, oi.quantity, oi.price_at_purchase, p.name, p.image_url "
+                + "FROM order_items oi JOIN products p ON oi.product_id = p.id "
+                + "WHERE oi.order_id = ? ORDER BY oi.id";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, orderId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    items.add(mapRowToOrderItem(rs));
                 }
-                return o;
             }
         }
+        return items;
     }
 
     public Address getAddressById(int addressId) throws SQLException, ClassNotFoundException {
-        // (for the success page; the order's address_id came from a row you just validated)
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT id, user_id, line1, line2, city, pincode, is_default FROM addresses WHERE id = ?")) {
             ps.setInt(1,addressId);
@@ -203,6 +206,107 @@ public class OrderDAO {
                     );
                 }
                 return null;
+            }
+        }
+    }
+    public int totalOrders() throws SQLException, ClassNotFoundException{
+        int count=0;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) as totalOrders FROM orders")){
+            ResultSet rs =ps.executeQuery();
+            if(rs.next()){
+                count=rs.getInt("totalOrders");
+            }
+        }
+        return count;
+    }
+    public int totalOrdersStatus(Order.Status e) throws SQLException, ClassNotFoundException{
+        int count=0;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) as totalOrdersStatus FROM orders where status=?")){
+            ps.setString(1, String.valueOf(e));
+            ResultSet rs =ps.executeQuery();
+            if (rs.next()){
+                count=rs.getInt("totalOrdersStatus");
+            }
+        }
+        return count;
+    }
+    public BigDecimal revenue() throws SQLException, ClassNotFoundException{
+        BigDecimal revenue =BigDecimal.ZERO;
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT COALESCE(SUM(total), 0) AS revenue" +
+                    " FROM orders" +
+                    " WHERE status <> 'CANCELLED'")){
+            ResultSet rs =ps.executeQuery();
+            if (rs.next()){
+                revenue =rs.getBigDecimal("revenue");
+            }
+        }
+        return revenue;
+    }
+    public List<Order> getAllOrders() throws SQLException, ClassNotFoundException {
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT o.id, o.user_id, o.address_id, o.total, o.status, o.payment_method, o.created_at ,u.name AS customer_name " +
+                    "FROM orders as o join users as u ON o.user_id = u.id ORDER BY o.created_at DESC ")) {
+            List<Order> o=new ArrayList<>();
+
+            try (ResultSet rs =ps.executeQuery()){
+                while (rs.next()){
+                    Order current_Order= mapRowToOrder(rs);
+                    current_Order.setCustomerName(rs.getString("customer_name"));
+                    o.add(current_Order);
+                }
+                return o;
+            }
+        }
+    }
+    public boolean updateStatus(int orderId, Order.Status expected, Order.Status newStatus)
+            throws SQLException, ClassNotFoundException {
+        if (newStatus == Order.Status.CANCELLED) {
+            return false;
+        }
+        if (expected == null || newStatus == null || !expected.canMoveTo(newStatus)) {
+            return false;
+        }
+        String sql = "UPDATE orders SET status = ? WHERE id = ? AND status = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1,newStatus.name());
+            ps.setInt(2,orderId);
+            ps.setString(3, expected.name());
+            int rows = ps.executeUpdate();
+            return rows==1;
+        }
+    }
+    public Boolean cancelOrder(int orderId)throws SQLException, ClassNotFoundException{
+        String Sql="UPDATE orders SET status = 'CANCELLED' WHERE id = ? AND status = 'PLACED'";
+        try (Connection con= DBConnection.getConnection()){
+            con.setAutoCommit(false);
+            try(PreparedStatement ps=con.prepareStatement(Sql)){
+                ps.setInt(1,orderId);
+                int rows=ps.executeUpdate();
+                if (rows != 1) {
+                    con.rollback();
+                    return false;
+                }
+                List<OrderItem> o=getItemsByOrder(orderId);
+                o.sort(Comparator.comparingInt(OrderItem::getProductId));
+                String sql="UPDATE products SET stock = stock + ? WHERE id = ?";
+                try (PreparedStatement ps1 = con.prepareStatement(sql)) {
+                    for (OrderItem item : o) {
+                        ps1.setInt(1, item.getQuantity());
+                        ps1.setInt(2, item.getProductId());
+                        ps1.executeUpdate();
+                    }
+                }
+                con.commit();
+                return true;
+            } catch (SQLException | RuntimeException e) {
+                con.rollback();
+                throw e;
+            } finally {
+                con.setAutoCommit(true);
             }
         }
     }

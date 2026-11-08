@@ -6,6 +6,10 @@
 <c:choose>
     <c:when test="${not empty sessionScope.user}">
         <p>Welcome, ${sessionScope.user.name}!</p>
+        <a href="${pageContext.request.contextPath}/my-orders">MyOrders</a>
+        <c:if test="${sessionScope.user.role == 'ADMIN'}">
+            <a href="${pageContext.request.contextPath}/admin/dashbord">Admin</a>
+        </c:if>
         <a href="logout">Logout</a>
     </c:when>
     <c:otherwise>

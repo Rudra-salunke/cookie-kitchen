@@ -28,9 +28,15 @@ public class LoginServlet extends HttpServlet{
                 req.getRequestDispatcher("login.jsp").forward(req, res);
             }else{
                 if(BCrypt.checkpw(password, user.getPassword_hash())){
-                    HttpSession session = req.getSession();
-                    session.setAttribute("user", user);
-                    res.sendRedirect("index.jsp");
+                    if("ADMIN".equals(user.getRole())){
+                        HttpSession session = req.getSession();
+                        session.setAttribute("user", user);
+                        res.sendRedirect(req.getContextPath() + "/admin/dashbord.jsp");
+                    }else{
+                        HttpSession session = req.getSession();
+                        session.setAttribute("user", user);
+                        res.sendRedirect("index.jsp");
+                    }
                 }else{
                     req.setAttribute("error", "password is wrong.");
                     req.getRequestDispatcher("login.jsp").forward(req, res);
